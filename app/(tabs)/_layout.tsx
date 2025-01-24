@@ -8,17 +8,14 @@ export default function TabLayout() {
         tabBarActiveTintColor: "purple",
         headerShown: false,
         tabBarStyle: {
-          paddingHorizontal: 30, // Add horizontal padding
-          borderRadius: 20, // Add rounded corners
-          marginHorizontal: 20, // Add margin to the left and right
-          marginBottom: 5, // Add margin to the bottom
-          backgroundColor: "#f8f8f8", // Optional: customize background color
-          elevation: 15, // Add shadow for Android
-          shadowOffset: { width: 0, height: 2 },
-          shadowOpacity: 0.5,
-          shadowRadius: 3,
+          flexDirection: "row", // Arrange tabs horizontally
+          justifyContent: "space-between", // Distribute tabs evenly
+          paddingHorizontal: 10, // Add horizontal padding
+          paddingVertical: 10,
+          borderRadius: 10,
+          minHeight: 70,
         },
-        tabBarShowLabel: false, // Hide the names under the tabs
+        // tabBarShowLabel: false, // Hide the names under the tabs
       }}
     >
       <Tabs.Screen
@@ -26,8 +23,13 @@ export default function TabLayout() {
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="home" color={color} />
+            <FontAwesome size={25} name="home" color={color} />
           ),
+          tabBarLabelPosition: "below-icon",
+          tabBarLabelStyle: {
+            fontSize: 14,
+            fontWeight: "bold",
+          },
         }}
       />
       <Tabs.Screen
@@ -35,8 +37,13 @@ export default function TabLayout() {
         options={{
           title: "explore",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="search" color={color} />
+            <FontAwesome size={25} name="search" color={color} />
           ),
+          tabBarLabelPosition: "below-icon",
+          tabBarLabelStyle: {
+            fontSize: 14,
+            fontWeight: "bold",
+          },
         }}
       />
       <Tabs.Screen
@@ -44,8 +51,13 @@ export default function TabLayout() {
         options={{
           title: "accounts",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="cog" color={color} />
+            <FontAwesome size={25} name="cog" color={color} />
           ),
+          tabBarLabelPosition: "below-icon",
+          tabBarLabelStyle: {
+            fontSize: 14,
+            fontWeight: "bold",
+          },
         }}
       />
     </Tabs>
