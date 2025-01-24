@@ -1,38 +1,29 @@
+import { View, Text, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Downloadpicture } from "@/components/Downloadpicture";
+import { Button } from "react-native";
+import { useState, useEffect } from "react";
 
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import Library from "../library";
-import Liked from "../liked";
-import Suggested from "../suggested";
+export default function explore() {
+  const [pictureOpen, setPictureOpen] = useState(false);
 
-const Tab = createMaterialTopTabNavigator();
+  useEffect(() => {
+    console.log("Updated pictureOpen state:", pictureOpen);
+  }, [pictureOpen]); // Runs whenever pictureOpen changes
 
-export default function index() {
   return (
-    <Tab.Navigator
-      screenOptions={{
-        tabBarScrollEnabled: true,
-      }}
-    >
-  
-      <Tab.Screen name="Library" component={Library} />
-      <Tab.Screen name="Liked" component={Liked} />
-      <Tab.Screen name="Suggested" component={Suggested} />
-    </Tab.Navigator>
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={{ flex: 1 }}>
+        <Text>This is the explore page</Text>
+        <Button
+          title={pictureOpen ? "Close Download" : "Open Download"}
+          onPress={() => {
+            setPictureOpen((prevState) => !prevState);
+            console.log(pictureOpen);
+          }}
+        ></Button>
+        {pictureOpen && <Downloadpicture />}
+      </View>
+    </SafeAreaView>
   );
-
-  // function HomeScreen() {
-  //   return (
-  //     <View>
-  //       <Text>this is home screen</Text>
-  //     </View>
-  //   );
-  // }
-
-  // function ProfileScreen() {
-  //   return (
-  //     <View>
-  //       <Text>This is Profie screen</Text>
-  //     </View>
-  //   );
-  // }
 }

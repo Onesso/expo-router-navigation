@@ -21,7 +21,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          title: "For you",
           tabBarIcon: ({ color }) => (
             <FontAwesome size={25} name="home" color={color} />
           ),
@@ -51,7 +51,7 @@ export default function TabLayout() {
         options={{
           title: "accounts",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={25} name="cog" color={color} />
+            <FontAwesome size={25} name="user" color={color} />
           ),
           tabBarLabelPosition: "below-icon",
           tabBarLabelStyle: {
